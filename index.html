@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+    //random choice generator for computer
     function getComputerChoice() {
         let randomNumber = Math.floor(Math.random() * 3)
 
@@ -19,7 +20,7 @@
             return "scissors"
         }
     }
-
+    //rounds of RPS with return statements on W/L/T
     function playRound(playerSelection, computerSelection) {
         playerSelectionNew = playerSelection.toLowerCase()
 
@@ -45,7 +46,7 @@
     let playerSelection;
     let computerSelection;
 
-    //tally is not recording score
+    //tally counter and runs the game 5 times
     function game(playerTally, computerTally) {
         playerTally = 0;
         computerTally = 0;
