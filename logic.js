@@ -1,7 +1,17 @@
 //global variables
 const selections = ['rock', 'paper', 'scissors']
+const buttons = document.querySelectorAll('button')
+const scoreboard = document.querySelectorAll('#scoreboard')
+const scoreboardContent = document.createElement('div')
+
+//function that displays the playRound results
+function results() {
+    scoreboardContent.innerText = `${playRound(userInput, computerSelection)}` //where will this userInput be defined?
+    scoreboardContent.append(scoreboard)
+}
 
 
+console.log(scoreboard)
 //random choice generator for computer
 function getComputerChoice() {
     const selectIndex = Math.floor(Math.random() * selections.length);
@@ -9,27 +19,22 @@ function getComputerChoice() {
 }
 
 //click event based on what the selection
-const buttons = document.querySelectorAll('button')
-
 buttons.forEach((button) => {
     button.addEventListener('click', e => {
         const userInput = button.dataset.selection
         let computerSelection = getComputerChoice()
-        console.log('pc: ', computerSelection)
+        console.log('pc: ', computerSelection) //change these into divs that will update as the games get played
         console.log('user: ', userInput)
         console.log(playRound(userInput, computerSelection))
     })
 })
 
 //function to determine who wins who loses
-
 function playRound(userInput, computerSelection) {
     
     const winMessage = 'You win!';
     const loseMessage = 'You lose!';
     const tieMessage = 'It\'s a tie!'; 
-
-    // const scoreboard = document.getElementById('scoreboard')
     
     if (userInput === computerSelection) {
         return tieMessage
