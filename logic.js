@@ -1,52 +1,42 @@
-
 //global variables
-
+const selections = ['rock', 'paper', 'scissors']
+const buttons = document.querySelectorAll('button')
+const scoreboard = document.querySelector('#scoreboard')
+const scoreboardContent = document.createElement('div')
 
 //random choice generator for computer
 function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3)
-
-    if (randomNumber == 0) {
-        return "rock"
-    } else if (randomNumber == 1) {
-        return "paper"
-    } else {
-        return "scissors"
-    }
+    const selectIndex = Math.floor(Math.random() * selections.length);
+    return selections[selectIndex]
 }
 
-//player selector from buttons
-
-const buttons = document.querySelectorAll('[data-selection]')
-
-buttons.forEach(buttons => {
-    buttons.addEventListener('click', e => {
-        playerSelection = buttons.dataset.selection
-        console.log(playRound(playerSelection, getComputerChoice()))
-        console.log(getComputerChoice())
+//click event based on what the selection
+buttons.forEach((button) => {
+    button.addEventListener('click', e => {
+        const userInput = button.dataset.selection
+        let computerSelection = getComputerChoice()
+        console.log('pc: ', computerSelection) //change these into divs that will update as the games get played
+        console.log('user: ', userInput)
+        playRound(userInput, computerSelection)
     })
-})
+});
 
-
-//rounds of RPS with return statements on W/L/T
-function playRound(playerSelection, computerSelection) {
+function playRound(userInput, computerSelection) {
     
+    const scoreboardContent = document.createElement('div')
+    const winMessage = 'You win!';
+    const loseMessage = 'You lose!';
+    const tieMessage = 'It\'s a tie!'; 
+    
+        if (userInput === computerSelection) {
+            return scoreboard.innerText = tieMessage;
 
-    if (playerSelection === computerSelection) {
-        return "Nobody wins; it\'s a tie!"
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You win!"
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return "You lose!"
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "You win!"
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "You lose!"
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "You win!"
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "You lose!"
-    } else {
-        return "What happened..."
-    }
-}
+        } else if (userInput === 'rock' && computerSelection === 'scissors' ||
+                userInput === 'paper' && computerSelection === 'rock' ||
+                userInput === 'scissors' && computerSelection === 'paper') {    
+            return scoreboard.innerText = winMessage;
+
+        } else {
+            return scoreboard.innerText = loseMessage;
+        } 
+};
