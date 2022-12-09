@@ -23,7 +23,6 @@ buttons.forEach((button) => {
 
 function playRound(userInput, computerSelection) {
     
-    const scoreboardContent = document.createElement('div')
     const winMessage = 'You win!';
     const loseMessage = 'You lose!';
     const tieMessage = 'It\'s a tie!'; 
