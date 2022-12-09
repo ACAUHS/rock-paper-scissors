@@ -17,13 +17,10 @@ buttons.forEach((button) => {
         let computerSelection = getComputerChoice()
         console.log('pc: ', computerSelection) //change these into divs that will update as the games get played
         console.log('user: ', userInput)
-        // console.log(playRound(userInput, computerSelection))
         playRound(userInput, computerSelection)
     })
-})
+});
 
-
-//function to determine who wins who loses + displays the win or loss
 function playRound(userInput, computerSelection) {
     
     const scoreboardContent = document.createElement('div')
@@ -31,19 +28,15 @@ function playRound(userInput, computerSelection) {
     const loseMessage = 'You lose!';
     const tieMessage = 'It\'s a tie!'; 
     
-    if (userInput === computerSelection) {
-        scoreboardContent.innerText = tieMessage;
-        return scoreboard.appendChild(scoreboardContent);
+        if (userInput === computerSelection) {
+            return scoreboard.innerText = tieMessage;
 
-    } else if (userInput === 'rock' && computerSelection === 'scissors' ||
-               userInput === 'paper' && computerSelection === 'rock' ||
-               userInput === 'scissors' && computerSelection === 'paper') {
+        } else if (userInput === 'rock' && computerSelection === 'scissors' ||
+                userInput === 'paper' && computerSelection === 'rock' ||
+                userInput === 'scissors' && computerSelection === 'paper') {    
+            return scoreboard.innerText = winMessage;
 
-        scoreboardContent.innerText = winMessage;    
-        return scoreboard.appendChild(scoreboardContent);
-
-    } else {
-        scoreboardContent.innerText = loseMessage;
-        return scoreboard.appendChild(scoreboardContent);
-    }
-}
+        } else {
+            return scoreboard.innerText = loseMessage;
+        } 
+};
