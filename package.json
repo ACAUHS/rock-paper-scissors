@@ -1,0 +1,23 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "JS practice",
+  "main": "logic.js",
+  "scripts": {
+    "build:css": "tailwind build src/style.css -o dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ACAUHS/rock-paper-scissors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ACAUHS/rock-paper-scissors/issues"
+  },
+  "homepage": "https://github.com/ACAUHS/rock-paper-scissors#readme",
+  "dependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}

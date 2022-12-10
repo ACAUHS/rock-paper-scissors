@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="style.css">
+    <title>Rock, Paper ,Scissors</title>
+</head>
+<body>
+    <h1>ROCK | PAPER | SCISSORS</h1>
+    <p>Can you get to 5 before the CPU?</p>
+    <div class = results>
+        <span id="userScore">0</span>&nbsp-&nbsp<span id="cpuScore">0</span>
+    </div>
+    <div class="selections">
+        <button class="selection" data-selection="rock">Rock</button>
+        <button class="selection" data-selection="paper">Paper</button>
+        <button class="selection" data-selection="scissors">Scissors</button>
+        <button id="resetGame">Reset</button>
+    </div>
+    <div id="scoreboard">
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>
