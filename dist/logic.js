@@ -1,11 +1,11 @@
 //global variables
 const selections = ['rock', 'paper', 'scissors']
-const buttons = document.querySelectorAll('.selection')
+const buttons = document.querySelectorAll('button')
 const scoreboard = document.querySelector('#scoreboard')
+const scoreboardContent = document.createElement('div')
 const userScore = document.querySelector('#userScore')
 const cpuScore = document.querySelector('#cpuScore')
 const results = document.querySelector('.results')
-// const resetButton = document.querySelector('#resetGame')
 let iUser = 0;
 let iCPU = 0;
 
@@ -21,24 +21,17 @@ buttons.forEach((button) => {
         const userInput = button.dataset.selection
         let computerSelection = getComputerChoice()
         let outcomeRound = playRound(userInput, computerSelection)
-        const userWin = 'You have beat the CPU!'
         console.log('pc: ', computerSelection) //change these into divs that will update as the games get played
         console.log('user: ', userInput)
         playFive(outcomeRound)
+        
     })
 });
-
-//reset button
-document.querySelector('#resetGame').addEventListener('click', () => {
-    window.location.reload();
-    return false
-}) 
-
 
 //function that plays the game to 5
 function playFive(outcomeRound) {
 
-    while (iUser < 5 && iCPU < 5) {
+    do {
         if (outcomeRound === 'It\'s a tie!') {
             return results.innerText = `${iUser} - ${iCPU}` 
         } else if (outcomeRound === 'You win!') {
@@ -50,7 +43,7 @@ function playFive(outcomeRound) {
             // return cpuScore.innerText = `${iCPU}`;
             return results.innerText = `${iUser} - ${iCPU}` 
         } 
-    }
+    } while (iUser < 5 && iCPU < 5)
 }
 
 
